@@ -1,0 +1,2 @@
+CorrectionClient.exe KRUSKAL_RELEASE
+pause

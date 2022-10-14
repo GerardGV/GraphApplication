@@ -1,0 +1,892 @@
+<HTML>
+<HEAD>
+<META HTTP-EQUIV="Content-Type" Content="text/html;charset=UTF-8">
+<TITLE> Informe de correcció SPANNING_TREE_PRIM</TITLE>
+</HEAD>
+<BODY BGCOLOR="#FFFFFF" TEXT="#000000">
+<H1>Informe de correcció SPANNING_TREE_PRIM</H1>
+<b>Data: </b>Tue Oct 11 00:32:27 2022
+<BR><BR>
+<b>Demanat per: </b><LU><LI>1605947 GUARIN VELEZ, Gerard Josep GerardJosep.Guarin@autonoma.cat
+</LU><br><b>Autors:</b><LU><LI>1605947 GUARIN VELEZ, Gerard Josep GerardJosep.Guarin@autonoma.cat
+</LU><br><BR><b>Fitxers enviats al servidor:</b><LU><LI>x64\Debug\GraphApplication.exe
+<LI>GraphApplication\GraphApplication.cpp
+<LI>GraphApplication\Graph.h
+<LI>GraphApplication\SpanningTreePrim.cpp
+</LU><BR><BR>
+<b>Llista de proves:</b>
+<LU><LI><a href="#TEST_1">Prova spanning tree prim senseArestes</a> Falla amb 0 errors
+<LI><a href="#TEST_2">Prova spanning tree prim UnaAresta</a> Correcte
+<LI><a href="#TEST_3">Prova spanning tree prim TresArestes</a> Correcte
+<LI><a href="#TEST_4">Prova spanning tree prim DesconectatPrim</a> Correcte
+<LI><a href="#TEST_5">Prova spanning tree prim UAB_complet</a> Falla amb 34 errors
+<LI><a href="#TEST_6">Prova spanning tree prim Graf100</a> Falla amb 164 errors
+<LI><a href="#TEST_7">Prova spanning tree prim Graf1000</a> Falla amb 0 errors
+</LU><br><br><b>Notes:</b><LU><LI>Algorisme de Prim = 3
+</LU><br><hr>
+<A NAME="TEST_1"><H3>Prova spanning tree prim senseArestes</H3></A>
+<p> Fitxer del graf: TestSpanningTree\senseArestes.GR<br>
+Fitxer arbre de cobertura mínim: "TestSpanningTree\\senseArestes.TRE"</p>
+<p> Temps de referencia: 2.6e-05seg.<br>
+Temps de execució máxim: 0.00026seg.<br>
+<p>EXCEPTION TIME OUT 2.000000.Kill command: "GraphApplication.exe" Outputs\senseArestes_SpanningTreePrim_Out.txt Prim TestSpanningTree\senseArestes.GR Outputs\senseArestes_SpanningTreePrim.TRE</p>
+
+<B>Falla amb 0 errors</B>
+<LU></LU><BR><hr>
+<A NAME="TEST_2"><H3>Prova spanning tree prim UnaAresta</H3></A>
+<p> Fitxer del graf: TestSpanningTree\UnaAresta.GR<br>
+Fitxer arbre de cobertura mínim: "TestSpanningTree\\UnaAresta.TRE"</p>
+<p> Temps de referencia: 5.6e-05seg.<br>
+Temps de execució máxim: 0.00056seg.<br>
+Temps de execució de la prova: 0.000109seg.</P>
+<P><b>SPANNING TREE OK:</b> <CODE>{V0001<b>&mdash;</b><u>E0001</u><b>&rarr;</b>V0002}</CODE></P>
+<P><b>SPANNING TREE PRACTICA:</b> <CODE>{V0001<b>&mdash;</b><u>E0001</u><b>&rarr;</b>V0002}</CODE></P>
+
+ <B>CORRECTE</B>
+<hr>
+<A NAME="TEST_3"><H3>Prova spanning tree prim TresArestes</H3></A>
+<p> Fitxer del graf: TestSpanningTree\TresArestes.GR<br>
+Fitxer arbre de cobertura mínim: "TestSpanningTree\\TresArestes.TRE"</p>
+<p> Temps de referencia: 1.3e-05seg.<br>
+Temps de execució máxim: 0.00013seg.<br>
+Temps de execució de la prova: 9.3e-05seg.</P>
+<P><b>SPANNING TREE OK:</b> <CODE>{V0001<b>&mdash;</b><u>E0001</u><b>&rarr;</b>V0002, V0001<b>&mdash;</b><u>E0003</u><b>&rarr;</b>V0003}</CODE></P>
+<P><b>SPANNING TREE PRACTICA:</b> <CODE>{V0001<b>&mdash;</b><u>E0001</u><b>&rarr;</b>V0002, V0001<b>&mdash;</b><u>E0003</u><b>&rarr;</b>V0003}</CODE></P>
+
+ <B>CORRECTE</B>
+<hr>
+<A NAME="TEST_4"><H3>Prova spanning tree prim DesconectatPrim</H3></A>
+<p> Fitxer del graf: TestSpanningTree\DesconectatPrim.GR<br>
+Fitxer arbre de cobertura mínim: "TestSpanningTree\\DesconectatPrim.TRE"</p>
+<p> Temps de referencia: 1.3e-05seg.<br>
+Temps de execució máxim: 0.00013seg.<br>
+Temps de execució de la prova: 0.000106seg.</P>
+<P><b>SPANNING TREE OK:</b> <CODE>{V0001<b>&mdash;</b><u>E0001</u><b>&rarr;</b>V0002, V0001<b>&mdash;</b><u>E0003</u><b>&rarr;</b>V0003}</CODE></P>
+<P><b>SPANNING TREE PRACTICA:</b> <CODE>{V0001<b>&mdash;</b><u>E0001</u><b>&rarr;</b>V0002, V0001<b>&mdash;</b><u>E0003</u><b>&rarr;</b>V0003}</CODE></P>
+
+ <B>CORRECTE</B>
+<hr>
+<A NAME="TEST_5"><H3>Prova spanning tree prim UAB_complet</H3></A>
+<p> Fitxer del graf: TestSpanningTree\UAB_complet.GR<br>
+Fitxer arbre de cobertura mínim: "TestSpanningTree\\UAB_complet.TRE"</p>
+<p> Temps de referencia: 4.2e-05seg.<br>
+Temps de execució máxim: 0.00042seg.<br>
+Temps de execució de la prova: 0.000775seg.</P>
+<P><b>SPANNING TREE OK:</b> <CODE>{V0019<b>&mdash;</b><u>E0409$Reverse</u><b>&rarr;</b>V0018, V0020<b>&mdash;</b><u>E0415$Reverse</u><b>&rarr;</b>V0019, V0002<b>&mdash;</b><u>E0075</u><b>&rarr;</b>V0020, V0006<b>&mdash;</b><u>E0149$Reverse</u><b>&rarr;</b>V0005, V0007<b>&mdash;</b><u>E0181$Reverse</u><b>&rarr;</b>V0006, V0008<b>&mdash;</b><u>E0211$Reverse</u><b>&rarr;</b>V0007, V0011<b>&mdash;</b><u>E0311</u><b>&rarr;</b>V0012, V0010<b>&mdash;</b><u>E0289</u><b>&rarr;</b>V0011, V0010<b>&mdash;</b><u>E0265$Reverse</u><b>&rarr;</b>V0009, V0008<b>&mdash;</b><u>E0241</u><b>&rarr;</b>V0010, V0017<b>&mdash;</b><u>E0255$Reverse</u><b>&rarr;</b>V0008, V0014<b>&mdash;</b><u>E0365</u><b>&rarr;</b>V0015, V0013<b>&mdash;</b><u>E0349</u><b>&rarr;</b>V0014, V0021<b>&mdash;</b><u>E0363$Reverse</u><b>&rarr;</b>V0013, V0017<b>&mdash;</b><u>E0407</u><b>&rarr;</b>V0021, V0016<b>&mdash;</b><u>E0391</u><b>&rarr;</b>V0017, V0004<b>&mdash;</b><u>E0137</u><b>&rarr;</b>V0016, V0003<b>&mdash;</b><u>E0079</u><b>&rarr;</b>V0004, V0001<b>&mdash;</b><u>E0003</u><b>&rarr;</b>V0003, V0001<b>&mdash;</b><u>E0001</u><b>&rarr;</b>V0002}</CODE></P>
+<P><b>SPANNING TREE PRACTICA:</b> <CODE>{V0017<b>&mdash;</b><u>E0339$Reverse</u><b>&rarr;</b>V0012, V0017<b>&mdash;</b><u>E0321$Reverse</u><b>&rarr;</b>V0011, V0016<b>&mdash;</b><u>E0367$Reverse</u><b>&rarr;</b>V0014, V0007<b>&mdash;</b><u>E0237</u><b>&rarr;</b>V0021, V0003<b>&mdash;</b><u>E0085</u><b>&rarr;</b>V0007, V0016<b>&mdash;</b><u>E0299$Reverse</u><b>&rarr;</b>V0010, V0004<b>&mdash;</b><u>E0121</u><b>&rarr;</b>V0008, V0009<b>&mdash;</b><u>E0275</u><b>&rarr;</b>V0015, V0018<b>&mdash;</b><u>E0141$Reverse</u><b>&rarr;</b>V0004, V0017<b>&mdash;</b><u>E0279$Reverse</u><b>&rarr;</b>V0009, V0020<b>&mdash;</b><u>E0037$Reverse</u><b>&rarr;</b>V0001, V0018<b>&mdash;</b><u>E0401$Reverse</u><b>&rarr;</b>V0017, V0016<b>&mdash;</b><u>E0353$Reverse</u><b>&rarr;</b>V0013, V0016<b>&mdash;</b><u>E0199$Reverse</u><b>&rarr;</b>V0006, V0003<b>&mdash;</b><u>E0081</u><b>&rarr;</b>V0005, V0016<b>&mdash;</b><u>E0103$Reverse</u><b>&rarr;</b>V0003, V0018<b>&mdash;</b><u>E0393$Reverse</u><b>&rarr;</b>V0016, V0020<b>&mdash;</b><u>E0075$Reverse</u><b>&rarr;</b>V0002, V0019<b>&mdash;</b><u>E0409$Reverse</u><b>&rarr;</b>V0018, V0019<b>&mdash;</b><u>E0415</u><b>&rarr;</b>V0020}</CODE></P>
+
+<B>Falla amb 34 errors</B>
+<LU><LI>Edge que sobra al arbre de cobertura mínim E0339$Reverse
+<dd>
+Areste de més: EDGE(E0339$Reverse,V0017&rarr;V0012, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0321$Reverse
+<dd>
+Areste de més: EDGE(E0321$Reverse,V0017&rarr;V0011, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0367$Reverse
+<dd>
+Areste de més: EDGE(E0367$Reverse,V0016&rarr;V0014, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0237
+<dd>
+Areste de més: EDGE(E0237,V0007&rarr;V0021, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0085
+<dd>
+Areste de més: EDGE(E0085,V0003&rarr;V0007, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0299$Reverse
+<dd>
+Areste de més: EDGE(E0299$Reverse,V0016&rarr;V0010, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0121
+<dd>
+Areste de més: EDGE(E0121,V0004&rarr;V0008, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0275
+<dd>
+Areste de més: EDGE(E0275,V0009&rarr;V0015, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0141$Reverse
+<dd>
+Areste de més: EDGE(E0141$Reverse,V0018&rarr;V0004, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0279$Reverse
+<dd>
+Areste de més: EDGE(E0279$Reverse,V0017&rarr;V0009, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0037$Reverse
+<dd>
+Areste de més: EDGE(E0037$Reverse,V0020&rarr;V0001, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0401$Reverse
+<dd>
+Areste de més: EDGE(E0401$Reverse,V0018&rarr;V0017, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0353$Reverse
+<dd>
+Areste de més: EDGE(E0353$Reverse,V0016&rarr;V0013, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0199$Reverse
+<dd>
+Areste de més: EDGE(E0199$Reverse,V0016&rarr;V0006, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0081
+<dd>
+Areste de més: EDGE(E0081,V0003&rarr;V0005, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0103$Reverse
+<dd>
+Areste de més: EDGE(E0103$Reverse,V0016&rarr;V0003, 0)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0393$Reverse
+<dd>
+Areste de més: EDGE(E0393$Reverse,V0018&rarr;V0016, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0149$Reverse
+<dd>
+Areste que falta: EDGE(E0149$Reverse,V0006&rarr;V0005, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0181$Reverse
+<dd>
+Areste que falta: EDGE(E0181$Reverse,V0007&rarr;V0006, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0211$Reverse
+<dd>
+Areste que falta: EDGE(E0211$Reverse,V0008&rarr;V0007, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0311
+<dd>
+Areste que falta: EDGE(E0311,V0011&rarr;V0012, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0289
+<dd>
+Areste que falta: EDGE(E0289,V0010&rarr;V0011, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0265$Reverse
+<dd>
+Areste que falta: EDGE(E0265$Reverse,V0010&rarr;V0009, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0241
+<dd>
+Areste que falta: EDGE(E0241,V0008&rarr;V0010, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0255$Reverse
+<dd>
+Areste que falta: EDGE(E0255$Reverse,V0017&rarr;V0008, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0365
+<dd>
+Areste que falta: EDGE(E0365,V0014&rarr;V0015, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0349
+<dd>
+Areste que falta: EDGE(E0349,V0013&rarr;V0014, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0363$Reverse
+<dd>
+Areste que falta: EDGE(E0363$Reverse,V0021&rarr;V0013, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0407
+<dd>
+Areste que falta: EDGE(E0407,V0017&rarr;V0021, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0391
+<dd>
+Areste que falta: EDGE(E0391,V0016&rarr;V0017, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0137
+<dd>
+Areste que falta: EDGE(E0137,V0004&rarr;V0016, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0079
+<dd>
+Areste que falta: EDGE(E0079,V0003&rarr;V0004, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0003
+<dd>
+Areste que falta: EDGE(E0003,V0001&rarr;V0003, 0)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0001
+<dd>
+Areste que falta: EDGE(E0001,V0001&rarr;V0002, 0)
+</dd>
+</LU><BR><hr>
+<A NAME="TEST_6"><H3>Prova spanning tree prim Graf100</H3></A>
+<p> Fitxer del graf: TestSpanningTree\Graf100.GR<br>
+Fitxer arbre de cobertura mínim: "TestSpanningTree\\Graf100.TRE"</p>
+<p> Temps de referencia: 0.000169seg.<br>
+Temps de execució máxim: 0.00169seg.<br>
+Temps de execució de la prova: 0.003424seg.</P>
+<P><b>SPANNING TREE OK:</b> <CODE>{V0040<b>&mdash;</b><u>E1585</u><b>&rarr;</b>V0094, V0066<b>&mdash;</b><u>E0649$Reverse</u><b>&rarr;</b>V0098, V0053<b>&mdash;</b><u>E1921</u><b>&rarr;</b>V0082, V0044<b>&mdash;</b><u>E1887$Reverse</u><b>&rarr;</b>V0094, V0029<b>&mdash;</b><u>E0953$Reverse</u><b>&rarr;</b>V0067, V0009<b>&mdash;</b><u>E0683</u><b>&rarr;</b>V0049, V0018<b>&mdash;</b><u>E1571$Reverse</u><b>&rarr;</b>V0080, V0006<b>&mdash;</b><u>E0037</u><b>&rarr;</b>V0020, V0057<b>&mdash;</b><u>E0837$Reverse</u><b>&rarr;</b>V0070, V0035<b>&mdash;</b><u>E1493$Reverse</u><b>&rarr;</b>V0092, V0055<b>&mdash;</b><u>E1471$Reverse</u><b>&rarr;</b>V0085, V0043<b>&mdash;</b><u>E0863</u><b>&rarr;</b>V0091, V0081<b>&mdash;</b><u>E1191$Reverse</u><b>&rarr;</b>V0092, V0015<b>&mdash;</b><u>E0153</u><b>&rarr;</b>V0078, V0068<b>&mdash;</b><u>E0259$Reverse</u><b>&rarr;</b>V0089, V0048<b>&mdash;</b><u>E1181$Reverse</u><b>&rarr;</b>V0077, V0037<b>&mdash;</b><u>E0959</u><b>&rarr;</b>V0095, V0084<b>&mdash;</b><u>E0697$Reverse</u><b>&rarr;</b>V0094, V0043<b>&mdash;</b><u>E1799$Reverse</u><b>&rarr;</b>V0090, V0009<b>&mdash;</b><u>E1543$Reverse</u><b>&rarr;</b>V0054, V0008<b>&mdash;</b><u>E0253</u><b>&rarr;</b>V0054, V0060<b>&mdash;</b><u>E1943</u><b>&rarr;</b>V0079, V0001<b>&mdash;</b><u>E0635$Reverse</u><b>&rarr;</b>V0060, V0022<b>&mdash;</b><u>E0601</u><b>&rarr;</b>V0056, V0016<b>&mdash;</b><u>E0647</u><b>&rarr;</b>V0093, V0005<b>&mdash;</b><u>E0355</u><b>&rarr;</b>V0062, V0005<b>&mdash;</b><u>E1789</u><b>&rarr;</b>V0084, V0013<b>&mdash;</b><u>E1449</u><b>&rarr;</b>V0045, V0079<b>&mdash;</b><u>E0941</u><b>&rarr;</b>V0089, V0033<b>&mdash;</b><u>E1159$Reverse</u><b>&rarr;</b>V0065, V0029<b>&mdash;</b><u>E1613</u><b>&rarr;</b>V0031, V0023<b>&mdash;</b><u>E0481</u><b>&rarr;</b>V0083, V0032<b>&mdash;</b><u>E1707</u><b>&rarr;</b>V0058, V0063<b>&mdash;</b><u>E1637$Reverse</u><b>&rarr;</b>V0071, V0015<b>&mdash;</b><u>E1963$Reverse</u><b>&rarr;</b>V0020, V0051<b>&mdash;</b><u>E0479$Reverse</u><b>&rarr;</b>V0075, V0010<b>&mdash;</b><u>E0335</u><b>&rarr;</b>V0023, V0010<b>&mdash;</b><u>E0073</u><b>&rarr;</b>V0038, V0012<b>&mdash;</b><u>E1085</u><b>&rarr;</b>V0085, V0008<b>&mdash;</b><u>E0869$Reverse</u><b>&rarr;</b>V0055, V0015<b>&mdash;</b><u>E1539</u><b>&rarr;</b>V0017, V0034<b>&mdash;</b><u>E1211</u><b>&rarr;</b>V0042, V0008<b>&mdash;</b><u>E0029</u><b>&rarr;</b>V0016, V0013<b>&mdash;</b><u>E0041</u><b>&rarr;</b>V0022, V0024<b>&mdash;</b><u>E0467</u><b>&rarr;</b>V0043, V0082<b>&mdash;</b><u>E1727$Reverse</u><b>&rarr;</b>V0095, V0028<b>&mdash;</b><u>E1241$Reverse</u><b>&rarr;</b>V0035, V0013<b>&mdash;</b><u>E1473$Reverse</u><b>&rarr;</b>V0074, V0064<b>&mdash;</b><u>E1153</u><b>&rarr;</b>V0068, V0008<b>&mdash;</b><u>E1453</u><b>&rarr;</b>V0030, V0042<b>&mdash;</b><u>E0307$Reverse</u><b>&rarr;</b>V0071, V0034<b>&mdash;</b><u>E0273</u><b>&rarr;</b>V0076, V0055<b>&mdash;</b><u>E1661$Reverse</u><b>&rarr;</b>V0088, V0019<b>&mdash;</b><u>E0825</u><b>&rarr;</b>V0057, V0025<b>&mdash;</b><u>E0231</u><b>&rarr;</b>V0059, V0041<b>&mdash;</b><u>E1403</u><b>&rarr;</b>V0058, V0052<b>&mdash;</b><u>E0537$Reverse</u><b>&rarr;</b>V0099, V0035<b>&mdash;</b><u>E1675$Reverse</u><b>&rarr;</b>V0072, V0017<b>&mdash;</b><u>E0219$Reverse</u><b>&rarr;</b>V0041, V0029<b>&mdash;</b><u>E0415$Reverse</u><b>&rarr;</b>V0034, V0025<b>&mdash;</b><u>E0747</u><b>&rarr;</b>V0086, V0061<b>&mdash;</b><u>E0623$Reverse</u><b>&rarr;</b>V0076, V0021<b>&mdash;</b><u>E0093</u><b>&rarr;</b>V0048, V0014<b>&mdash;</b><u>E0673</u><b>&rarr;</b>V0099, V0045<b>&mdash;</b><u>E1249</u><b>&rarr;</b>V0051, V0079<b>&mdash;</b><u>E0907$Reverse</u><b>&rarr;</b>V0093, V0066<b>&mdash;</b><u>E0389$Reverse</u><b>&rarr;</b>V0082, V0043<b>&mdash;</b><u>E0925$Reverse</u><b>&rarr;</b>V0076, V0007<b>&mdash;</b><u>E1589$Reverse</u><b>&rarr;</b>V0096, V0004<b>&mdash;</b><u>E0069</u><b>&rarr;</b>V0036, V0007<b>&mdash;</b><u>E1625$Reverse</u><b>&rarr;</b>V0034, V0008<b>&mdash;</b><u>E1045</u><b>&rarr;</b>V0077, V0020<b>&mdash;</b><u>E0209</u><b>&rarr;</b>V0094, V0073<b>&mdash;</b><u>E1007</u><b>&rarr;</b>V0087, V0018<b>&mdash;</b><u>E0705$Reverse</u><b>&rarr;</b>V0059, V0058<b>&mdash;</b><u>E0711</u><b>&rarr;</b>V0065, V0027<b>&mdash;</b><u>E0349$Reverse</u><b>&rarr;</b>V0059, V0030<b>&mdash;</b><u>E0205</u><b>&rarr;</b>V0084, V0013<b>&mdash;</b><u>E0949$Reverse</u><b>&rarr;</b>V0100, V0027<b>&mdash;</b><u>E0617</u><b>&rarr;</b>V0069, V0004<b>&mdash;</b><u>E0633$Reverse</u><b>&rarr;</b>V0045, V0010<b>&mdash;</b><u>E0627</u><b>&rarr;</b>V0052, V0045<b>&mdash;</b><u>E1605$Reverse</u><b>&rarr;</b>V0047, V0022<b>&mdash;</b><u>E1337</u><b>&rarr;</b>V0099, V0011<b>&mdash;</b><u>E0569$Reverse</u><b>&rarr;</b>V0063, V0050<b>&mdash;</b><u>E0367$Reverse</u><b>&rarr;</b>V0100, V0077<b>&mdash;</b><u>E0719$Reverse</u><b>&rarr;</b>V0097, V0002<b>&mdash;</b><u>E1541$Reverse</u><b>&rarr;</b>V0065, V0039<b>&mdash;</b><u>E1663</u><b>&rarr;</b>V0068, V0010<b>&mdash;</b><u>E0265$Reverse</u><b>&rarr;</b>V0043, V0034<b>&mdash;</b><u>E0359$Reverse</u><b>&rarr;</b>V0057, V0072<b>&mdash;</b><u>E1683$Reverse</u><b>&rarr;</b>V0079, V0015<b>&mdash;</b><u>E1499$Reverse</u><b>&rarr;</b>V0073, V0026<b>&mdash;</b><u>E1719$Reverse</u><b>&rarr;</b>V0062, V0011<b>&mdash;</b><u>E0257$Reverse</u><b>&rarr;</b>V0046, V0003<b>&mdash;</b><u>E0653</u><b>&rarr;</b>V0038, V0004<b>&mdash;</b><u>E0247</u><b>&rarr;</b>V0086, V0020<b>&mdash;</b><u>E0591$Reverse</u><b>&rarr;</b>V0066, V0046<b>&mdash;</b><u>E1209$Reverse</u><b>&rarr;</b>V0065}</CODE></P>
+<P><b>SPANNING TREE PRACTICA:</b> <CODE>{V0044<b>&mdash;</b><u>E1193</u><b>&rarr;</b>V0093, V0004<b>&mdash;</b><u>E0305</u><b>&rarr;</b>V0035, V0094<b>&mdash;</b><u>E1585$Reverse</u><b>&rarr;</b>V0040, V0031<b>&mdash;</b><u>E1033</u><b>&rarr;</b>V0089, V0023<b>&mdash;</b><u>E1953</u><b>&rarr;</b>V0080, V0038<b>&mdash;</b><u>E1353</u><b>&rarr;</b>V0100, V0036<b>&mdash;</b><u>E0313$Reverse</u><b>&rarr;</b>V0049, V0001<b>&mdash;</b><u>E1731$Reverse</u><b>&rarr;</b>V0030, V0054<b>&mdash;</b><u>E0625</u><b>&rarr;</b>V0069, V0097<b>&mdash;</b><u>E0203</u><b>&rarr;</b>V0060, V0076<b>&mdash;</b><u>E1591$Reverse</u><b>&rarr;</b>V0004, V0038<b>&mdash;</b><u>E1117$Reverse</u><b>&rarr;</b>V0047, V0070<b>&mdash;</b><u>E1133$Reverse</u><b>&rarr;</b>V0028, V0027<b>&mdash;</b><u>E1055$Reverse</u><b>&rarr;</b>V0085, V0039<b>&mdash;</b><u>E1795$Reverse</u><b>&rarr;</b>V0059, V0070<b>&mdash;</b><u>E1261$Reverse</u><b>&rarr;</b>V0072, V0025<b>&mdash;</b><u>E0047$Reverse</u><b>&rarr;</b>V0013, V0081<b>&mdash;</b><u>E0159$Reverse</u><b>&rarr;</b>V0039, V0079<b>&mdash;</b><u>E1325$Reverse</u><b>&rarr;</b>V0068, V0076<b>&mdash;</b><u>E1357$Reverse</u><b>&rarr;</b>V0016, V0025<b>&mdash;</b><u>E1685</u><b>&rarr;</b>V0051, V0088<b>&mdash;</b><u>E0427</u><b>&rarr;</b>V0092, V0091<b>&mdash;</b><u>E0311$Reverse</u><b>&rarr;</b>V0008, V0078<b>&mdash;</b><u>E0693</u><b>&rarr;</b>V0082, V0025<b>&mdash;</b><u>E0137</u><b>&rarr;</b>V0070, V0067<b>&mdash;</b><u>E1859$Reverse</u><b>&rarr;</b>V0062, V0022<b>&mdash;</b><u>E0513</u><b>&rarr;</b>V0025, V0055<b>&mdash;</b><u>E1027$Reverse</u><b>&rarr;</b>V0021, V0091<b>&mdash;</b><u>E0325</u><b>&rarr;</b>V0018, V0029<b>&mdash;</b><u>E0423</u><b>&rarr;</b>V0001, V0031<b>&mdash;</b><u>E1553</u><b>&rarr;</b>V0026, V0091<b>&mdash;</b><u>E0613</u><b>&rarr;</b>V0079, V0057<b>&mdash;</b><u>E1965$Reverse</u><b>&rarr;</b>V0052, V0015<b>&mdash;</b><u>E0027$Reverse</u><b>&rarr;</b>V0005, V0066<b>&mdash;</b><u>E0649$Reverse</u><b>&rarr;</b>V0098, V0027<b>&mdash;</b><u>E0691$Reverse</u><b>&rarr;</b>V0081, V0048<b>&mdash;</b><u>E1917</u><b>&rarr;</b>V0053, V0067<b>&mdash;</b><u>E0811</u><b>&rarr;</b>V0048, V0097<b>&mdash;</b><u>E1361$Reverse</u><b>&rarr;</b>V0009, V0075<b>&mdash;</b><u>E0169</u><b>&rarr;</b>V0086, V0043<b>&mdash;</b><u>E0931$Reverse</u><b>&rarr;</b>V0045, V0087<b>&mdash;</b><u>E0291</u><b>&rarr;</b>V0031, V0088<b>&mdash;</b><u>E0361$Reverse</u><b>&rarr;</b>V0064, V0034<b>&mdash;</b><u>E0065$Reverse</u><b>&rarr;</b>V0014, V0044<b>&mdash;</b><u>E0105</u><b>&rarr;</b>V0054, V0076<b>&mdash;</b><u>E1319$Reverse</u><b>&rarr;</b>V0088, V0076<b>&mdash;</b><u>E1483$Reverse</u><b>&rarr;</b>V0027, V0094<b>&mdash;</b><u>E1887</u><b>&rarr;</b>V0044, V0024<b>&mdash;</b><u>E1563$Reverse</u><b>&rarr;</b>V0075, V0097<b>&mdash;</b><u>E1651</u><b>&rarr;</b>V0037, V0078<b>&mdash;</b><u>E1991$Reverse</u><b>&rarr;</b>V0094, V0050<b>&mdash;</b><u>E1577</u><b>&rarr;</b>V0022, V0083<b>&mdash;</b><u>E1825$Reverse</u><b>&rarr;</b>V0056, V0010<b>&mdash;</b><u>E0331</u><b>&rarr;</b>V0036, V0099<b>&mdash;</b><u>E1939</u><b>&rarr;</b>V0050, V0003<b>&mdash;</b><u>E1609</u><b>&rarr;</b>V0042, V0041<b>&mdash;</b><u>E0079$Reverse</u><b>&rarr;</b>V0010, V0084<b>&mdash;</b><u>E1145$Reverse</u><b>&rarr;</b>V0012, V0061<b>&mdash;</b><u>E1305</u><b>&rarr;</b>V0024, V0071<b>&mdash;</b><u>E0667$Reverse</u><b>&rarr;</b>V0007, V0057<b>&mdash;</b><u>E1829$Reverse</u><b>&rarr;</b>V0096, V0029<b>&mdash;</b><u>E0953$Reverse</u><b>&rarr;</b>V0067, V0083<b>&mdash;</b><u>E0487</u><b>&rarr;</b>V0043, V0055<b>&mdash;</b><u>E0379</u><b>&rarr;</b>V0077, V0061<b>&mdash;</b><u>E1929</u><b>&rarr;</b>V0055, V0099<b>&mdash;</b><u>E0287$Reverse</u><b>&rarr;</b>V0074, V0066<b>&mdash;</b><u>E0187</u><b>&rarr;</b>V0095, V0076<b>&mdash;</b><u>E0883</u><b>&rarr;</b>V0099, V0084<b>&mdash;</b><u>E0191</u><b>&rarr;</b>V0097, V0076<b>&mdash;</b><u>E0149$Reverse</u><b>&rarr;</b>V0029, V0084<b>&mdash;</b><u>E1573</u><b>&rarr;</b>V0066, V0019<b>&mdash;</b><u>E0333</u><b>&rarr;</b>V0084, V0057<b>&mdash;</b><u>E1217$Reverse</u><b>&rarr;</b>V0091, V0063<b>&mdash;</b><u>E0425</u><b>&rarr;</b>V0038, V0041<b>&mdash;</b><u>E1475$Reverse</u><b>&rarr;</b>V0076, V0011<b>&mdash;</b><u>E0295$Reverse</u><b>&rarr;</b>V0087, V0061<b>&mdash;</b><u>E1927</u><b>&rarr;</b>V0003, V0006<b>&mdash;</b><u>E0035</u><b>&rarr;</b>V0019, V0058<b>&mdash;</b><u>E1955$Reverse</u><b>&rarr;</b>V0083, V0017<b>&mdash;</b><u>E1721</u><b>&rarr;</b>V0090, V0063<b>&mdash;</b><u>E0435</u><b>&rarr;</b>V0023, V0015<b>&mdash;</b><u>E1135</u><b>&rarr;</b>V0061, V0020<b>&mdash;</b><u>E0037$Reverse</u><b>&rarr;</b>V0006, V0017<b>&mdash;</b><u>E0317</u><b>&rarr;</b>V0057, V0015<b>&mdash;</b><u>E0153</u><b>&rarr;</b>V0078, V0073<b>&mdash;</b><u>E1333$Reverse</u><b>&rarr;</b>V0034, V0058<b>&mdash;</b><u>E0807$Reverse</u><b>&rarr;</b>V0073, V0065<b>&mdash;</b><u>E1159</u><b>&rarr;</b>V0033, V0058<b>&mdash;</b><u>E1707$Reverse</u><b>&rarr;</b>V0032, V0063<b>&mdash;</b><u>E1637$Reverse</u><b>&rarr;</b>V0071, V0015<b>&mdash;</b><u>E1963$Reverse</u><b>&rarr;</b>V0020, V0017<b>&mdash;</b><u>E1539$Reverse</u><b>&rarr;</b>V0015, V0063<b>&mdash;</b><u>E1495</u><b>&rarr;</b>V0017, V0058<b>&mdash;</b><u>E1403$Reverse</u><b>&rarr;</b>V0041, V0065<b>&mdash;</b><u>E0711$Reverse</u><b>&rarr;</b>V0058, V0011<b>&mdash;</b><u>E0569$Reverse</u><b>&rarr;</b>V0063, V0065<b>&mdash;</b><u>E1541</u><b>&rarr;</b>V0002, V0046<b>&mdash;</b><u>E0257</u><b>&rarr;</b>V0011, V0065<b>&mdash;</b><u>E1209</u><b>&rarr;</b>V0046}</CODE></P>
+
+<B>Falla amb 164 errors</B>
+<LU><LI>Edge que sobra al arbre de cobertura mínim E1193
+<dd>
+Areste de més: EDGE(E1193,V0044&rarr;V0093, 9043.07)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0305
+<dd>
+Areste de més: EDGE(E0305,V0004&rarr;V0035, 9023.08)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1033
+<dd>
+Areste de més: EDGE(E1033,V0031&rarr;V0089, 7889.8)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1953
+<dd>
+Areste de més: EDGE(E1953,V0023&rarr;V0080, 7475.68)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1353
+<dd>
+Areste de més: EDGE(E1353,V0038&rarr;V0100, 7163.19)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0313$Reverse
+<dd>
+Areste de més: EDGE(E0313$Reverse,V0036&rarr;V0049, 7104.15)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1731$Reverse
+<dd>
+Areste de més: EDGE(E1731$Reverse,V0001&rarr;V0030, 7040.06)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0625
+<dd>
+Areste de més: EDGE(E0625,V0054&rarr;V0069, 7028.1)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0203
+<dd>
+Areste de més: EDGE(E0203,V0097&rarr;V0060, 6954.13)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1591$Reverse
+<dd>
+Areste de més: EDGE(E1591$Reverse,V0076&rarr;V0004, 6912.86)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1117$Reverse
+<dd>
+Areste de més: EDGE(E1117$Reverse,V0038&rarr;V0047, 6782.54)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1133$Reverse
+<dd>
+Areste de més: EDGE(E1133$Reverse,V0070&rarr;V0028, 6771.23)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1055$Reverse
+<dd>
+Areste de més: EDGE(E1055$Reverse,V0027&rarr;V0085, 6750.4)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1795$Reverse
+<dd>
+Areste de més: EDGE(E1795$Reverse,V0039&rarr;V0059, 6664.02)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1261$Reverse
+<dd>
+Areste de més: EDGE(E1261$Reverse,V0070&rarr;V0072, 6605.34)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0047$Reverse
+<dd>
+Areste de més: EDGE(E0047$Reverse,V0025&rarr;V0013, 6550.41)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0159$Reverse
+<dd>
+Areste de més: EDGE(E0159$Reverse,V0081&rarr;V0039, 6485)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1325$Reverse
+<dd>
+Areste de més: EDGE(E1325$Reverse,V0079&rarr;V0068, 6447.21)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1357$Reverse
+<dd>
+Areste de més: EDGE(E1357$Reverse,V0076&rarr;V0016, 6370.38)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1685
+<dd>
+Areste de més: EDGE(E1685,V0025&rarr;V0051, 6338.31)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0427
+<dd>
+Areste de més: EDGE(E0427,V0088&rarr;V0092, 6307.54)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0311$Reverse
+<dd>
+Areste de més: EDGE(E0311$Reverse,V0091&rarr;V0008, 6248.6)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0693
+<dd>
+Areste de més: EDGE(E0693,V0078&rarr;V0082, 6108.64)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0137
+<dd>
+Areste de més: EDGE(E0137,V0025&rarr;V0070, 6022.89)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1859$Reverse
+<dd>
+Areste de més: EDGE(E1859$Reverse,V0067&rarr;V0062, 5975.61)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0513
+<dd>
+Areste de més: EDGE(E0513,V0022&rarr;V0025, 5936.25)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1027$Reverse
+<dd>
+Areste de més: EDGE(E1027$Reverse,V0055&rarr;V0021, 5931.29)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0325
+<dd>
+Areste de més: EDGE(E0325,V0091&rarr;V0018, 5888.39)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0423
+<dd>
+Areste de més: EDGE(E0423,V0029&rarr;V0001, 5833.42)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1553
+<dd>
+Areste de més: EDGE(E1553,V0031&rarr;V0026, 5806.83)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0613
+<dd>
+Areste de més: EDGE(E0613,V0091&rarr;V0079, 5804.79)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1965$Reverse
+<dd>
+Areste de més: EDGE(E1965$Reverse,V0057&rarr;V0052, 5758.35)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0027$Reverse
+<dd>
+Areste de més: EDGE(E0027$Reverse,V0015&rarr;V0005, 5734.05)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0691$Reverse
+<dd>
+Areste de més: EDGE(E0691$Reverse,V0027&rarr;V0081, 5688.48)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1917
+<dd>
+Areste de més: EDGE(E1917,V0048&rarr;V0053, 5640.59)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0811
+<dd>
+Areste de més: EDGE(E0811,V0067&rarr;V0048, 5613.57)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1361$Reverse
+<dd>
+Areste de més: EDGE(E1361$Reverse,V0097&rarr;V0009, 5542.07)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0169
+<dd>
+Areste de més: EDGE(E0169,V0075&rarr;V0086, 5507.55)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0931$Reverse
+<dd>
+Areste de més: EDGE(E0931$Reverse,V0043&rarr;V0045, 5502.11)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0291
+<dd>
+Areste de més: EDGE(E0291,V0087&rarr;V0031, 5466.03)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0361$Reverse
+<dd>
+Areste de més: EDGE(E0361$Reverse,V0088&rarr;V0064, 5396.85)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0065$Reverse
+<dd>
+Areste de més: EDGE(E0065$Reverse,V0034&rarr;V0014, 5392.86)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0105
+<dd>
+Areste de més: EDGE(E0105,V0044&rarr;V0054, 5328.04)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1319$Reverse
+<dd>
+Areste de més: EDGE(E1319$Reverse,V0076&rarr;V0088, 5322.13)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1483$Reverse
+<dd>
+Areste de més: EDGE(E1483$Reverse,V0076&rarr;V0027, 5250.25)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1563$Reverse
+<dd>
+Areste de més: EDGE(E1563$Reverse,V0024&rarr;V0075, 5172.13)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1651
+<dd>
+Areste de més: EDGE(E1651,V0097&rarr;V0037, 5061.81)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1991$Reverse
+<dd>
+Areste de més: EDGE(E1991$Reverse,V0078&rarr;V0094, 5049.73)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1577
+<dd>
+Areste de més: EDGE(E1577,V0050&rarr;V0022, 4941.59)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1825$Reverse
+<dd>
+Areste de més: EDGE(E1825$Reverse,V0083&rarr;V0056, 4840.61)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0331
+<dd>
+Areste de més: EDGE(E0331,V0010&rarr;V0036, 4790.1)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1939
+<dd>
+Areste de més: EDGE(E1939,V0099&rarr;V0050, 4786.77)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1609
+<dd>
+Areste de més: EDGE(E1609,V0003&rarr;V0042, 4784.35)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0079$Reverse
+<dd>
+Areste de més: EDGE(E0079$Reverse,V0041&rarr;V0010, 4772.93)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1145$Reverse
+<dd>
+Areste de més: EDGE(E1145$Reverse,V0084&rarr;V0012, 4764.17)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1305
+<dd>
+Areste de més: EDGE(E1305,V0061&rarr;V0024, 4754.24)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0667$Reverse
+<dd>
+Areste de més: EDGE(E0667$Reverse,V0071&rarr;V0007, 4721.9)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1829$Reverse
+<dd>
+Areste de més: EDGE(E1829$Reverse,V0057&rarr;V0096, 4689.86)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0487
+<dd>
+Areste de més: EDGE(E0487,V0083&rarr;V0043, 4584.74)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0379
+<dd>
+Areste de més: EDGE(E0379,V0055&rarr;V0077, 4504.83)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1929
+<dd>
+Areste de més: EDGE(E1929,V0061&rarr;V0055, 4504.35)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0287$Reverse
+<dd>
+Areste de més: EDGE(E0287$Reverse,V0099&rarr;V0074, 4444.06)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0187
+<dd>
+Areste de més: EDGE(E0187,V0066&rarr;V0095, 4419.08)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0883
+<dd>
+Areste de més: EDGE(E0883,V0076&rarr;V0099, 4269.11)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0191
+<dd>
+Areste de més: EDGE(E0191,V0084&rarr;V0097, 4257.52)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0149$Reverse
+<dd>
+Areste de més: EDGE(E0149$Reverse,V0076&rarr;V0029, 4245.96)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1573
+<dd>
+Areste de més: EDGE(E1573,V0084&rarr;V0066, 4231.54)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0333
+<dd>
+Areste de més: EDGE(E0333,V0019&rarr;V0084, 4209.43)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1217$Reverse
+<dd>
+Areste de més: EDGE(E1217$Reverse,V0057&rarr;V0091, 4118.88)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0425
+<dd>
+Areste de més: EDGE(E0425,V0063&rarr;V0038, 4089.92)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1475$Reverse
+<dd>
+Areste de més: EDGE(E1475$Reverse,V0041&rarr;V0076, 4008.36)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0295$Reverse
+<dd>
+Areste de més: EDGE(E0295$Reverse,V0011&rarr;V0087, 4001.19)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1927
+<dd>
+Areste de més: EDGE(E1927,V0061&rarr;V0003, 3940.34)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0035
+<dd>
+Areste de més: EDGE(E0035,V0006&rarr;V0019, 3920.92)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1955$Reverse
+<dd>
+Areste de més: EDGE(E1955$Reverse,V0058&rarr;V0083, 3870.32)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1721
+<dd>
+Areste de més: EDGE(E1721,V0017&rarr;V0090, 3810.3)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0435
+<dd>
+Areste de més: EDGE(E0435,V0063&rarr;V0023, 3790.85)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1135
+<dd>
+Areste de més: EDGE(E1135,V0015&rarr;V0061, 3712.2)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0317
+<dd>
+Areste de més: EDGE(E0317,V0017&rarr;V0057, 3677.54)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1333$Reverse
+<dd>
+Areste de més: EDGE(E1333$Reverse,V0073&rarr;V0034, 3480.71)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E0807$Reverse
+<dd>
+Areste de més: EDGE(E0807$Reverse,V0058&rarr;V0073, 3399.14)
+</dd>
+<LI>Edge que sobra al arbre de cobertura mínim E1495
+<dd>
+Areste de més: EDGE(E1495,V0063&rarr;V0017, 2533.36)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1921
+<dd>
+Areste que falta: EDGE(E1921,V0053&rarr;V0082, 5521.91)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0683
+<dd>
+Areste que falta: EDGE(E0683,V0009&rarr;V0049, 4512.66)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1571$Reverse
+<dd>
+Areste que falta: EDGE(E1571$Reverse,V0018&rarr;V0080, 4050.41)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0837$Reverse
+<dd>
+Areste que falta: EDGE(E0837$Reverse,V0057&rarr;V0070, 3675.24)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1493$Reverse
+<dd>
+Areste que falta: EDGE(E1493$Reverse,V0035&rarr;V0092, 3670.13)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1471$Reverse
+<dd>
+Areste que falta: EDGE(E1471$Reverse,V0055&rarr;V0085, 3560.42)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0863
+<dd>
+Areste que falta: EDGE(E0863,V0043&rarr;V0091, 3556.32)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1191$Reverse
+<dd>
+Areste que falta: EDGE(E1191$Reverse,V0081&rarr;V0092, 3556.03)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0259$Reverse
+<dd>
+Areste que falta: EDGE(E0259$Reverse,V0068&rarr;V0089, 3430.34)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1181$Reverse
+<dd>
+Areste que falta: EDGE(E1181$Reverse,V0048&rarr;V0077, 3377.56)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0959
+<dd>
+Areste que falta: EDGE(E0959,V0037&rarr;V0095, 3360.59)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0697$Reverse
+<dd>
+Areste que falta: EDGE(E0697$Reverse,V0084&rarr;V0094, 3347.45)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1799$Reverse
+<dd>
+Areste que falta: EDGE(E1799$Reverse,V0043&rarr;V0090, 3291.08)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1543$Reverse
+<dd>
+Areste que falta: EDGE(E1543$Reverse,V0009&rarr;V0054, 3272.75)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0253
+<dd>
+Areste que falta: EDGE(E0253,V0008&rarr;V0054, 3269.99)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1943
+<dd>
+Areste que falta: EDGE(E1943,V0060&rarr;V0079, 3241.37)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0635$Reverse
+<dd>
+Areste que falta: EDGE(E0635$Reverse,V0001&rarr;V0060, 3159.88)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0601
+<dd>
+Areste que falta: EDGE(E0601,V0022&rarr;V0056, 3148.17)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0647
+<dd>
+Areste que falta: EDGE(E0647,V0016&rarr;V0093, 3147.05)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0355
+<dd>
+Areste que falta: EDGE(E0355,V0005&rarr;V0062, 3144.26)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1789
+<dd>
+Areste que falta: EDGE(E1789,V0005&rarr;V0084, 3117.24)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1449
+<dd>
+Areste que falta: EDGE(E1449,V0013&rarr;V0045, 3115.21)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0941
+<dd>
+Areste que falta: EDGE(E0941,V0079&rarr;V0089, 3036.99)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1613
+<dd>
+Areste que falta: EDGE(E1613,V0029&rarr;V0031, 2970.14)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0481
+<dd>
+Areste que falta: EDGE(E0481,V0023&rarr;V0083, 2895.46)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0479$Reverse
+<dd>
+Areste que falta: EDGE(E0479$Reverse,V0051&rarr;V0075, 2661.73)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0335
+<dd>
+Areste que falta: EDGE(E0335,V0010&rarr;V0023, 2635.64)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0073
+<dd>
+Areste que falta: EDGE(E0073,V0010&rarr;V0038, 2619.06)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1085
+<dd>
+Areste que falta: EDGE(E1085,V0012&rarr;V0085, 2611.62)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0869$Reverse
+<dd>
+Areste que falta: EDGE(E0869$Reverse,V0008&rarr;V0055, 2576.45)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1211
+<dd>
+Areste que falta: EDGE(E1211,V0034&rarr;V0042, 2523.3)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0029
+<dd>
+Areste que falta: EDGE(E0029,V0008&rarr;V0016, 2460.04)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0041
+<dd>
+Areste que falta: EDGE(E0041,V0013&rarr;V0022, 2440.78)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0467
+<dd>
+Areste que falta: EDGE(E0467,V0024&rarr;V0043, 2436.16)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1727$Reverse
+<dd>
+Areste que falta: EDGE(E1727$Reverse,V0082&rarr;V0095, 2435.08)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1241$Reverse
+<dd>
+Areste que falta: EDGE(E1241$Reverse,V0028&rarr;V0035, 2399.91)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1473$Reverse
+<dd>
+Areste que falta: EDGE(E1473$Reverse,V0013&rarr;V0074, 2379.84)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1153
+<dd>
+Areste que falta: EDGE(E1153,V0064&rarr;V0068, 2376.05)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1453
+<dd>
+Areste que falta: EDGE(E1453,V0008&rarr;V0030, 2372.52)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0307$Reverse
+<dd>
+Areste que falta: EDGE(E0307$Reverse,V0042&rarr;V0071, 2337.24)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0273
+<dd>
+Areste que falta: EDGE(E0273,V0034&rarr;V0076, 2334.2)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1661$Reverse
+<dd>
+Areste que falta: EDGE(E1661$Reverse,V0055&rarr;V0088, 2327.41)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0825
+<dd>
+Areste que falta: EDGE(E0825,V0019&rarr;V0057, 2315.01)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0231
+<dd>
+Areste que falta: EDGE(E0231,V0025&rarr;V0059, 2313.97)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0537$Reverse
+<dd>
+Areste que falta: EDGE(E0537$Reverse,V0052&rarr;V0099, 2306.59)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1675$Reverse
+<dd>
+Areste que falta: EDGE(E1675$Reverse,V0035&rarr;V0072, 2279.08)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0219$Reverse
+<dd>
+Areste que falta: EDGE(E0219$Reverse,V0017&rarr;V0041, 2271.37)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0415$Reverse
+<dd>
+Areste que falta: EDGE(E0415$Reverse,V0029&rarr;V0034, 2255.39)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0747
+<dd>
+Areste que falta: EDGE(E0747,V0025&rarr;V0086, 2209.16)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0623$Reverse
+<dd>
+Areste que falta: EDGE(E0623$Reverse,V0061&rarr;V0076, 2190.54)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0093
+<dd>
+Areste que falta: EDGE(E0093,V0021&rarr;V0048, 2181.01)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0673
+<dd>
+Areste que falta: EDGE(E0673,V0014&rarr;V0099, 2180.78)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1249
+<dd>
+Areste que falta: EDGE(E1249,V0045&rarr;V0051, 2178.1)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0907$Reverse
+<dd>
+Areste que falta: EDGE(E0907$Reverse,V0079&rarr;V0093, 2164.4)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0389$Reverse
+<dd>
+Areste que falta: EDGE(E0389$Reverse,V0066&rarr;V0082, 2163.35)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0925$Reverse
+<dd>
+Areste que falta: EDGE(E0925$Reverse,V0043&rarr;V0076, 2162.71)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1589$Reverse
+<dd>
+Areste que falta: EDGE(E1589$Reverse,V0007&rarr;V0096, 2136.82)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0069
+<dd>
+Areste que falta: EDGE(E0069,V0004&rarr;V0036, 2091.85)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1625$Reverse
+<dd>
+Areste que falta: EDGE(E1625$Reverse,V0007&rarr;V0034, 2018.44)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1045
+<dd>
+Areste que falta: EDGE(E1045,V0008&rarr;V0077, 1998.04)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0209
+<dd>
+Areste que falta: EDGE(E0209,V0020&rarr;V0094, 1996.74)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1007
+<dd>
+Areste que falta: EDGE(E1007,V0073&rarr;V0087, 1977.57)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0705$Reverse
+<dd>
+Areste que falta: EDGE(E0705$Reverse,V0018&rarr;V0059, 1971.5)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0349$Reverse
+<dd>
+Areste que falta: EDGE(E0349$Reverse,V0027&rarr;V0059, 1965.98)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0205
+<dd>
+Areste que falta: EDGE(E0205,V0030&rarr;V0084, 1946.04)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0949$Reverse
+<dd>
+Areste que falta: EDGE(E0949$Reverse,V0013&rarr;V0100, 1942.93)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0617
+<dd>
+Areste que falta: EDGE(E0617,V0027&rarr;V0069, 1887.6)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0633$Reverse
+<dd>
+Areste que falta: EDGE(E0633$Reverse,V0004&rarr;V0045, 1812.72)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0627
+<dd>
+Areste que falta: EDGE(E0627,V0010&rarr;V0052, 1809.32)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1605$Reverse
+<dd>
+Areste que falta: EDGE(E1605$Reverse,V0045&rarr;V0047, 1705.53)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1337
+<dd>
+Areste que falta: EDGE(E1337,V0022&rarr;V0099, 1699.21)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0367$Reverse
+<dd>
+Areste que falta: EDGE(E0367$Reverse,V0050&rarr;V0100, 1688.4)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0719$Reverse
+<dd>
+Areste que falta: EDGE(E0719$Reverse,V0077&rarr;V0097, 1639.86)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1663
+<dd>
+Areste que falta: EDGE(E1663,V0039&rarr;V0068, 1606.3)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0265$Reverse
+<dd>
+Areste que falta: EDGE(E0265$Reverse,V0010&rarr;V0043, 1577.3)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0359$Reverse
+<dd>
+Areste que falta: EDGE(E0359$Reverse,V0034&rarr;V0057, 1439.02)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1683$Reverse
+<dd>
+Areste que falta: EDGE(E1683$Reverse,V0072&rarr;V0079, 1422.8)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1499$Reverse
+<dd>
+Areste que falta: EDGE(E1499$Reverse,V0015&rarr;V0073, 1393.15)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E1719$Reverse
+<dd>
+Areste que falta: EDGE(E1719$Reverse,V0026&rarr;V0062, 1173.02)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0653
+<dd>
+Areste que falta: EDGE(E0653,V0003&rarr;V0038, 965.001)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0247
+<dd>
+Areste que falta: EDGE(E0247,V0004&rarr;V0086, 950.479)
+</dd>
+<LI>Edge que falta al arbre de cobertura mínim E0591$Reverse
+<dd>
+Areste que falta: EDGE(E0591$Reverse,V0020&rarr;V0066, 939.279)
+</dd>
+</LU><BR><hr>
+<A NAME="TEST_7"><H3>Prova spanning tree prim Graf1000</H3></A>
+<p> Fitxer del graf: TestSpanningTree\Graf1000.GR<br>
+Fitxer arbre de cobertura mínim: "TestSpanningTree\\Graf1000.TRE"</p>
+<p> Temps de referencia: 0.119752seg.<br>
+Temps de execució máxim: 1.19752seg.<br>
+<p>EXCEPTION TIME OUT 9.164930.Kill command: "GraphApplication.exe" Outputs\Graf1000_SpanningTreePrim_Out.txt Prim TestSpanningTree\Graf1000.GR Outputs\Graf1000_SpanningTreePrim.TRE</p>
+
+<B>Falla amb 0 errors</B>
+<LU></LU><BR></BODY>
+</HTML>
