@@ -10,37 +10,26 @@
 
 void Dijkstra(CGraph& graph, CVertex* pStart)
 {
+	//we mark Start vertex as visited and we set the distance to 0
 	pStart->m_DijkstraDistance = 0;
-	//vector<CVertex*> candidates;
 	pStart->m_DijkstraVisit = true;
-	//visited.push_back(*pStart);
 	CVertex* pActual = pStart;
 
-	//list<CVertex*> candidates;
-	//candidates.push_back(pActual);
-	//cout << "Il vertice di partenza è: " << pStart->m_Name << " e la sua distanza: " << pStart->m_DijkstraDistance << endl;
-	//auto it = candidates.begin();
-	//int indexMin = 0;
+
 	int visitats = 1;
 
+
+	//we calculate the dijkstra distance of the neighbours through the conection with the actual Vertex
 	while (visitats != graph.m_Vertices.size()) {
 
-		//candidates.erase(next(candidates.begin(), indexMin));
 
-		//we check if we find a best dijkstra distance to the neighbours vertex through actual vertex
 		for (CEdge* e : pActual->m_Edges) {
 
-			/*
-			if(e->m_pDestination->m_DijkstraVisit==false)
-				candidates.push_back(e->m_pDestination);
-			*/
-			//cout << "La distanza del vertice: " << e->m_pDestination->m_Name << " è: " << e->m_pDestination->m_DijkstraDistance << endl;
 
 			if (e->m_Length + pActual->m_DijkstraDistance < e->m_pDestination->m_DijkstraDistance) {
 
 				(*e).m_pDestination->m_DijkstraDistance = (*e).m_Length + pActual->m_DijkstraDistance;
 				
-				//cout << "Il vertice attuale è: " << pStart->m_Name << " e la sua distanza: " << dist << endl;
 			}
 		}
 
@@ -53,11 +42,10 @@ void Dijkstra(CGraph& graph, CVertex* pStart)
 		//we look for the next vertex, the nearest, to explore it
 		if (visitats != graph.m_Vertices.size())
 		{
-			pActual =&graph.m_Vertices.front();
-			double min = pActual->m_DijkstraDistance;
-			auto it = graph.m_Vertices.begin();
-			it++;
-			for (;it != graph.m_Vertices.end(); it++)
+			
+			double min = numeric_limits<double>::max();
+			
+			for (auto it =graph.m_Vertices.begin(); it != graph.m_Vertices.end(); it++)
 			{
 				if (min > (*it).m_DijkstraDistance && (*it).m_DijkstraVisit == false)
 				{
@@ -69,23 +57,6 @@ void Dijkstra(CGraph& graph, CVertex* pStart)
 		
 
 
-		/*
-		if (!candidates.empty())
-		{
-			pActual = candidates[0];
-			double min = candidates[0]->m_DijkstraDistance;
-
-			for (int index = 1; index < candidates.size(); index++)
-			{
-				if (min > candidates[index]->m_DijkstraDistance && candidates[index]->m_DijkstraVisit == false)
-				{
-					min = candidates[index]->m_DijkstraDistance;
-					pActual = candidates[index];
-					indexMin = index;
-				}
-			}
-		}
-		*/
 
 	}
 
