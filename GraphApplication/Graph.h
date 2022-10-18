@@ -306,8 +306,7 @@ public:
 	bool m_Marca;
 	// TrobaCami
 	bool m_JaHePassat;
-	//visited?
-	bool m_visited=false;
+	
 	// Métodes
 	CEdge* FindEdge(const char* name);
 	bool MemberP(CEdge *pEdge);
@@ -319,7 +318,9 @@ public:
 		: m_Name(name)
 		, m_Color(RGB(0, 128, 128))
 		, m_Point(x, y)
-		, m_DijkstraDistance(-1.0)
+		, m_DijkstraDistance(numeric_limits<double>::max())
+		, m_DijkstraVisit(false)
+		, m_JaHePassat(false)
 	{}
 };
 

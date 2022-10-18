@@ -11,7 +11,7 @@ using namespace std;
 // =============================================================================
 
 CSpanningTree SpanningTreeKruskal(CGraph& graph)
-{
+ {
 	struct comparator {
 		bool operator()(CEdge* pE1, CEdge* pE2) {
 			return pE1->m_Length > pE2->m_Length;

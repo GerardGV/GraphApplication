@@ -79,6 +79,11 @@ void DijkstraQueue(CGraph& graph, CVertex *pStart)
 
 	priority_queue<CVertex*, std::vector<CVertex*>, comparator> nextNearVertex;
 
+	for (CVertex& it : graph.m_Vertices)
+	{
+		it.m_DijkstraDistance = numeric_limits<double>::max();
+		it.m_DijkstraVisit = false;
+	}
 
 	//we push the start node and we put its distane to 0
 	nextNearVertex.push(pStart) ;
