@@ -1,2 +1,0 @@
-CorrectionClient.exe PRIM_DEBUG
-pause
