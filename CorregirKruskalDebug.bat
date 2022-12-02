@@ -1,2 +1,0 @@
-CorrectionClient.exe KRUSKAL_DEBUG
-pause
