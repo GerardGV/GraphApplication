@@ -620,6 +620,8 @@ CTrack SalesmanTrackBranchAndBound1(CGraph& g, CVisits& visits);
 CTrack SalesmanTrackBranchAndBound2(CGraph& g, CVisits& visits);
 CTrack SalesmanTrackBranchAndBound3(CGraph& g, CVisits& visits);
 
+CTrack SalesmanTrackDynamicProgramming(CGraph& graph, CVisits& visits);
+
 CTrack SalesmanTrackProbabilistic(CGraph& g, CVisits& visits);
 
 CTrack TrobaCami1(CGraph& g);

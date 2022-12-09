@@ -284,8 +284,6 @@ bool CGraph::MemberP(CVertex* pVertex)
 	return false;
 }
 
-
-
 // NewEdge =====================================================================
 
 CEdge* CGraph::NewEdge(const char* name, double value, const char* originName, const char* destionatioName)
