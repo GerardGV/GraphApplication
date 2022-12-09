@@ -8,34 +8,34 @@
 
 // SalesmanTrackBranchAndBound1 ===================================================
 
-class CBBNode {
+class CBBNode1{
 public:
 	vector<int> m_indexes;
 	double m_dijkstraLenght;
 	double m_WeigthMin; // Cota inferior. peso del nodo a más pesado más largo es su posible camino
-	vector<bool> visited;
-public:
-	CBBNode(double dijkstraDistance, vector<int> indexes, int nVertex):m_dijkstraLenght(dijkstraDistance), m_indexes(indexes) { 
+	vector<bool> m_visited;
+
+	CBBNode1(double dijkstraDistance, vector<int> indexes, int nVertex):m_dijkstraLenght(dijkstraDistance), m_indexes(indexes) { 
 		
-		visited.resize(nVertex, false); 
+		m_visited.resize(nVertex, false); 
 
 		//first one has been visited
-		visited[0] = true;
+		m_visited[0] = true;
 	}
-	CBBNode(double dijkstraDistance, CEdge* pEdge, CVertex* pDestination) :m_dijkstraLenght(dijkstraDistance)
+	CBBNode1(double dijkstraDistance, CEdge* pEdge, CVertex* pDestination) :m_dijkstraLenght(dijkstraDistance)
 		, m_WeigthMin(m_dijkstraLenght + pDestination->m_Point.Distance(pEdge->m_pDestination->m_Point)) {}
 	
-	CBBNode(const CBBNode& node)
-		: m_dijkstraLenght(node.m_dijkstraLenght)
-		, m_WeigthMin(node.m_WeigthMin)
-		, m_indexes(node.m_indexes)
-		, visited(node.visited)
+	CBBNode1(const CBBNode1& node)
 	{
+		m_indexes = node.m_indexes;
+
+		m_visited = node.m_visited;
+	
 	}
 };
 
 struct comparator1 {
-	bool operator()(const CBBNode* s1, const CBBNode* s2) {
+	bool operator()(const CBBNode1* s1, const CBBNode1* s2) {
 		return s1->m_dijkstraLenght > s2->m_dijkstraLenght;
 	}
 };
@@ -59,25 +59,16 @@ CTrack SalesmanTrackBranchAndBound1(CGraph& graph, CVisits& visits)
 {
 	
 	//we create ways matrix with n vextors = n-1 vistis because we dont want the dijkstra distance from final vertex to the others
-	vector<vector<Cell>> matriu(visits.m_Vertices.size()-1);
+	vector<vector<Cell>> matriu(visits.m_Vertices.size() - 1);
 	int index = 0;
 
-	/*
-	//we put the index 0 to the first one
-	visits.m_Vertices.front()->m_indexMatrix = index;
-	DijkstraQueue(graph, visits.m_Vertices.front());
-	index++;
-	*/
-
-
-
-	for (auto vOriginDijks = visits.m_Vertices.begin(); vOriginDijks != next(visits.m_Vertices.begin(), visits.m_Vertices.size()-1); vOriginDijks++)
+	for (auto vOriginDijks = visits.m_Vertices.begin(); vOriginDijks != next(visits.m_Vertices.begin(), visits.m_Vertices.size() - 1); vOriginDijks++)
 	{
 		DijkstraQueue(graph, *vOriginDijks);
 
 		//we save in each vertex its index from the matrix
 		(*vOriginDijks)->m_indexMatrix = index;
-		
+
 		for (CVertex* vDestinationDijks : visits.m_Vertices) {
 
 			Cell matrixCell;
@@ -95,7 +86,7 @@ CTrack SalesmanTrackBranchAndBound1(CGraph& graph, CVisits& visits)
 			}
 
 			matriu[index].push_back(matrixCell);
-			
+
 		}
 
 
@@ -104,42 +95,42 @@ CTrack SalesmanTrackBranchAndBound1(CGraph& graph, CVisits& visits)
 
 	//we put the index of the column that represents the destination vertex in the matrix
 	visits.m_Vertices.back()->m_indexMatrix = index;
-	
-	
-	
 
-	priority_queue<CBBNode*, std::vector<CBBNode*>, comparator1> allPossibleSolution;
 
-	//we explore the first node and we add chose with the priority queue the next one that we are going to explore, it dependes of DijkstraDistance to each one
+
+
+	priority_queue<CBBNode1*, std::vector<CBBNode1*>, comparator1> allPossibleSolution;
+
+	//we explore the first node and we add ways, choosign with the priority queue the next one that we are going to explore, it dependes of DijkstraDistance to each one
 	//but with don't add the cell v1 column v1 because the dijkstraDistance is 0 and that generate a loop adn we are not going to explore the destination node so size-1
-	for (int col = 1; col < visits.m_Vertices.size()-1;col++) {
+	for (int col = 1; col < visits.m_Vertices.size() ; col++) {
 
 		//we create te vector where we are going to seave the indexes of th tram
 		vector<int> vIndex;
 		vIndex.push_back(0);
 		vIndex.push_back(col);
-		allPossibleSolution.push(new CBBNode(matriu[0][col].dijkstraDistance, vIndex, visits.m_Vertices.size()));
-		
+		allPossibleSolution.push(new CBBNode1(matriu[0][col].dijkstraDistance, vIndex, visits.m_Vertices.size()));
+
 	}
 
-	
+
 
 
 	//we are going to iterate until find a solution,  the first one it's the optimal in B&B, or not get any solution
 	while (!allPossibleSolution.empty())
 	{
 		//we take the tram with less weight(DijkstraDistance) and we compare if the las node in this is the destination
-		CBBNode* topNode = allPossibleSolution.top();
+		CBBNode1* topNode = allPossibleSolution.top();
 		allPossibleSolution.pop();
 
 		//we mark the next vertex in the list of index as visited
-		topNode->visited[topNode->m_indexes.back()] = true;
+		topNode->m_visited[topNode->m_indexes.back()] = true;
 
 		//if the last index is equal to the index of the destination that means that we are in a solution
 		if (topNode->m_indexes.back() == visits.m_Vertices.back()->m_indexMatrix)
 		{
 			//we check if the possible solution it's right
-			for (bool visitVertex : topNode->visited)
+			for (bool visitVertex : topNode->m_visited)
 			{
 				if (!visitVertex)
 				{
@@ -151,9 +142,9 @@ CTrack SalesmanTrackBranchAndBound1(CGraph& graph, CVisits& visits)
 			CTrack solution = CTrack(&graph, matriu[topNode->m_indexes[0]][topNode->m_indexes[1]].tram);
 
 			//merge al de indexes trams that we created with Dijkstra and we had saved in the matrix
-			for (int element = 1; element < topNode->m_indexes.size()-1; element++) {
-				
-				for (CEdge* e : matriu[topNode->m_indexes[element]][topNode->m_indexes[element+1]].tram)
+			for (int element = 1; element < topNode->m_indexes.size() - 1; element++) {
+
+				for (CEdge* e : matriu[topNode->m_indexes[element]][topNode->m_indexes[element + 1]].tram)
 					solution.m_Edges.push_back(e);
 				//solution.m_Edges.merge(matriu[topNode->m_indexes[element]][topNode->m_indexes[element] + 1].tram);
 			}
@@ -166,7 +157,7 @@ CTrack SalesmanTrackBranchAndBound1(CGraph& graph, CVisits& visits)
 
 		}
 
-		noSolution:
+	noSolution:
 
 		//we unmark the next vertex in the list of index as visited
 		//visited[topNode->m_indexes.back()] = false;
@@ -177,23 +168,29 @@ CTrack SalesmanTrackBranchAndBound1(CGraph& graph, CVisits& visits)
 			for (int col = 0; col < visits.m_Vertices.size(); col++)
 			{
 				//we control that we don't go to the same vertex, if we don't put this conditional, we will always in the same vertex because Dijkstra distance to it is 0
-				if (col != topNode->m_indexes.back())
+				if (col != topNode->m_indexes.back() && col != topNode->m_indexes[0])
 				{
 					//CBBNode(double* dijkstraDistance, vector<int> indexes)
-					CBBNode* newNode(topNode);
+					//CBBNode* newNode(topNode);
+
+					CBBNode1* newNode = new CBBNode1(*topNode);
+
+
 					newNode->m_indexes.push_back(col);
-					double tmp = topNode->m_dijkstraLenght;
-					newNode->m_dijkstraLenght = tmp + matriu[topNode->m_indexes.back()][col].dijkstraDistance;
+
+					newNode->m_dijkstraLenght = topNode->m_dijkstraLenght + matriu[topNode->m_indexes.back()][col].dijkstraDistance;
+
 					allPossibleSolution.push(newNode);
 				}
 
 			}
 		}
-		
-		
+
+
 	}
-	
+
 	return CTrack(&graph);
+	
 }
 
 // SalesmanTrackBranchAndBound2 ===================================================
