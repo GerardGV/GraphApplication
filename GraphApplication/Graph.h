@@ -306,7 +306,11 @@ public:
 	bool m_Marca;
 	// TrobaCami
 	bool m_JaHePassat;
-	
+
+	int m_count; 
+
+	int m_indexMatrix;
+
 	// Métodes
 	CEdge* FindEdge(const char* name);
 	bool MemberP(CEdge *pEdge);
@@ -318,9 +322,8 @@ public:
 		: m_Name(name)
 		, m_Color(RGB(0, 128, 128))
 		, m_Point(x, y)
-		, m_DijkstraDistance(numeric_limits<double>::max())
-		, m_DijkstraVisit(false)
-		, m_JaHePassat(false)
+		, m_DijkstraDistance(-1.0)
+		, m_count(0)
 	{}
 };
 
@@ -343,7 +346,6 @@ public:
 	bool m_Processed;
 	// Bacltracking basado en aristas
 	bool m_Used; // Ya se ha usado la arista en el camino
-	bool m_reverseUsed = false; //To know if whe can use it in the edge
 public:
 	CEdge(const char* name, double length, CVertex* pOrigin, CVertex* pDestination, CEdge* pReverseEdge)
 		: m_Name(name)
@@ -352,6 +354,7 @@ public:
 		, m_pOrigin(pOrigin)
 		, m_pDestination(pDestination)
 		, m_pReverseEdge(pReverseEdge)
+		, m_Used(false)
 	{}
 	void ResetColor() { m_Color = RGB(0, 0, 255); }
 	void SetColor(COLORREF color) {
@@ -359,10 +362,6 @@ public:
 		if (m_pReverseEdge) m_pReverseEdge->m_Color = color;
 	}
 
-	friend bool operator<(CEdge left , CEdge right)
-	{
-		return left.m_Length < right.m_Length;
-	}
 };
 
 inline ostream& operator<< (ostream& s, const CEdge& e) {
@@ -479,6 +478,12 @@ public:
 	CTrack(CGraph* pGraph) {
 		m_pGraph = pGraph;
 	}
+
+	CTrack(CGraph* pGraph, list<CEdge*> Edges) {
+		m_pGraph = pGraph;
+		m_Edges = Edges;
+	}
+
 	void SetGraph(CGraph* pGraph) {
 		Clear();
 		m_pGraph = pGraph;
