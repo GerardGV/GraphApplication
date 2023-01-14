@@ -347,68 +347,79 @@ struct index{
 
 
 CVisits* VISITES;
+struct newComparator {
+	bool operator()(pair<int,int> pE1, pair<int, int> pE2) {
+		return pE1.second > pE2.second;
+	}
+};
 
 
+class Cell {
+public:
+	double dijkstraDistance;
+	list<CEdge*> tram;
+};
 
-void SalesmanTrackBacktrackingGreedyRec(index* indexAterior, CVertex* pActual) {
+
+vector<vector<Cell>> matriu;
+list<int> indexCamiMesCurt;
+
+void SalesmanTrackBacktrackingGreedyRec(list<int> possibleVisits, int currentIndexNode, list<int> cami) {
 
 	//if the current lenght is bigger we are not to continue
 	if (LongitudCamiActual2 < LongitudCamiMesCurt2) {
 		
-		if (pActual == pDesti2)
+		if (currentIndexNode == pDesti2->m_indexMatrix)
 		{
-			//we update the optimal way with the current
-			LongitudCamiMesCurt2 = LongitudCamiActual2;
+			//if we don't have possible nodes to visit, it means that we have visit all of them
+			if (possibleVisits.empty())
+			{
+				//we update the optimal way with the current
+				LongitudCamiMesCurt2 = LongitudCamiActual2;
 
-			//we update the optimal way with the way that we have found
-			CamiMesCurt2.Clear();
-
-
-			while (indexAterior) {
-
-				//we apply Dijkstra to get all the edges of the section that are part othe optimal way
-				DijkstraQueue(*VISITES->m_pGraph, indexAterior->indexPrevi->first);//this is because each time we had execute Dijkstra to create the matrix, we update the DijkstraPrecious edges
-
-				auto it = VISITES->m_Vertices.begin();
-
-				advance(it, indexAterior->indexPrevi->second->m_indexMatrix);
-
-				//we compare that the origin of the edge is the vertex from where we had calculated all dijkstraDistances
-				while ((*it)->m_pDijkstraPrevious->m_pOrigin != indexAterior->indexPrevi->first)
-				{
-					//we create the optimal way adding all its sections
-					CamiMesCurt2.m_Edges.push_front((*it)->m_pDijkstraPrevious);
-				}
-
-				//we go to the next node in the linked list
-				indexAterior = indexAterior->m_pAnterior;
+				//we update the optimal way with the way that we have found
+				indexCamiMesCurt = cami;
 			}
 
 
 		}
 		else {
 
-			//we create a node of the linked list where we save section of the optimal way
-			index indexActual(pActual);
-			//indexActual.indexPrevi->first = pActual;
+			//we create priority queue to explore the near node from the current one
+			priority_queue<pair<int, int>, std::vector<pair<int, int>>, newComparator> nearNodes;
 
-			pair<CVertex*, CVertex*> actualSection;
-			while (!dijkstraDistancesMatrix[pActual->m_indexMatrix].empty())
+			//we order the nodes in order of near to current node
+			for (int indexNewNode : possibleVisits)
 			{
+				nearNodes.push(std::make_pair(indexNewNode, matriu[currentIndexNode][indexNewNode].dijkstraDistance));
+			}
+			
+			while (!nearNodes.empty())
+			{
+				
+				
 				//we add the weight of the optimal way section to the total weight of the way
-				LongitudCamiActual2+= dijkstraDistancesMatrix[pActual->m_indexMatrix].top()->m_DijkstraDistance;
+				LongitudCamiActual2 += nearNodes.top().second;
 
-				//we update the destination vertex of the section
-				indexActual.indexPrevi->second= dijkstraDistancesMatrix[pActual->m_indexMatrix].top();
+				
+				//we update the current node with the new one
+				cami.push_back(nearNodes.top().first);
 
+				
+				//we erase the new visited node from the possible visits and we added to the cami
+				possibleVisits.erase(find(possibleVisits.begin(),possibleVisits.end(), nearNodes.top().first));
+				
+			
 				//we sent the nearest vertex to the current vertex to the recursive function to explore it
-				SalesmanTrackBacktrackingGreedyRec(&indexActual, dijkstraDistancesMatrix[pActual->m_indexMatrix].top());//the nearest vertex is on the top of the priority queue
+				SalesmanTrackBacktrackingGreedyRec(possibleVisits, nearNodes.top().first, cami);//the nearest vertex is on the top of the priority queue
 			
 				//we take out the weight of the optimal way section to do a step back
-				LongitudCamiActual2 -= dijkstraDistancesMatrix[pActual->m_indexMatrix].top()->m_DijkstraDistance;
+				LongitudCamiActual2 -= nearNodes.top().second;
+				cami.pop_back();
+				possibleVisits.push_back(nearNodes.top().first);
 
 				//we take it out and we try with the next near vertex
-				dijkstraDistancesMatrix[pActual->m_indexMatrix].pop();
+				nearNodes.pop();
 
 			}
 			
@@ -420,54 +431,98 @@ void SalesmanTrackBacktrackingGreedyRec(index* indexAterior, CVertex* pActual) {
 
 
 
+
 CTrack SalesmanTrackBacktrackingGreedy(CGraph& graph, CVisits& visits)
 {
 	//we control that the graf has edges
 	if (!graph.m_Edges.empty())
 	{
-		//int index = 0;
-		int row = 0;
-		for (CVertex* v : visits.m_Vertices) {
+		//MATRIX CREATION
 
-			//we calculate all the minimum weight from the vertex v until all the vertex of the graph 
-			DijkstraQueue(graph, v);
+		//we create ways matrix with n vextors = n-1 vistis because we dont want the dijkstra distance from final vertex to the others
+		matriu.resize(visits.m_Vertices.size() - 1);
+		int index = 0;
 
-			//we create a priority queue to simulate a column in the matrix, each element of the vector Dijkstra distance
-			//simulates a row in the matrix
-			priority_queue<CVertex*, std::vector<CVertex*>, comparator> colomn;
-			dijkstraDistancesMatrix.push_back(colomn);
-			v->m_indexMatrix = row;
-			//index++;
-			
+		for (auto vOriginDijks = visits.m_Vertices.begin(); vOriginDijks != next(visits.m_Vertices.begin(), visits.m_Vertices.size() - 1); vOriginDijks++)
+		{
+			DijkstraQueue(graph, *vOriginDijks);
 
-			//we sort  in each row with the priority queue the vertexs that we have to visited depending of the weight, each vertex is a diferent column
-			for (CVertex* v: visits.m_Vertices) {
-				dijkstraDistancesMatrix[row].push(v);
+			//we save in each vertex its index from the matrix
+			(*vOriginDijks)->m_indexMatrix = index;
+
+			for (CVertex* vDestinationDijks : visits.m_Vertices) {
+
+				Cell matrixCell;
+				//we have to save in each vell of the matrix the DIJKSTRA way and de distance of this way
+				matrixCell.dijkstraDistance = vDestinationDijks->m_DijkstraDistance;
+
+				//we dont have dijkstraPrevios in the vertex from we explore because is th origin of Dijkstra
+				if (*vOriginDijks != vDestinationDijks)
+				{
+					while (vDestinationDijks != *vOriginDijks)
+					{
+						matrixCell.tram.push_front(vDestinationDijks->m_pDijkstraPrevious);
+						vDestinationDijks = vDestinationDijks->m_pDijkstraPrevious->m_pOrigin;
+					}
+				}
+
+				matriu[index].push_back(matrixCell);
 
 			}
 
-			//we take out the first column because it is gonna refer to the same vertex of thw row because columns are priorities queue an the distance to itself is 0
-			dijkstraDistancesMatrix[row].pop();
 
-
-			//we go to the next vertex
-			row++;
+			index++;
 		}
+
+		//we put the index of the column that represents the destination vertex in the matrix
+		visits.m_Vertices.back()->m_indexMatrix = index;
+
+		//------------------------------------------------------------------
 
 		//we get the destination and we select all the visits that can be or not visitied with the current way
 		pDesti2 = visits.m_Vertices.back();
 		
 		//we put the vertex that we need to visit as global because we need them in case we get to a possible solution
-		VISITES = &visits;
+		//VISITES = &visits;
+
+		//at the beggining we can visitid all the vertex
+		list<int> possibleVisits;
+		for (CVertex* v:visits.m_Vertices)
+		{
+			possibleVisits.push_back(v->m_indexMatrix);
+		}
+
+		//we take out the first one and we will start there
+		int currentNode = possibleVisits.front();
+		possibleVisits.pop_front();
 
 		//we initialize the shortest way 
 		LongitudCamiMesCurt2 = numeric_limits<double>::max();
 
-		//we pass the current graph to a global variable because we are not going to modify it
-		//graphToRec = &graph;
+
+
+		//we need to save the order in which we are going to visit the nodes
+		list<int> cami;
+		cami.push_back(currentNode);
 
 		//we look for the best way to visit all the nodes
-		SalesmanTrackBacktrackingGreedyRec(NULL, visits.m_Vertices.front());
+		SalesmanTrackBacktrackingGreedyRec(possibleVisits, currentNode, cami);
+
+		//create the cTrack solucion with the index cami solution
+		//we create the CTrack with th first section already addes
+		//auto itAux = next(indexCamiMesCurt.begin(), 1);
+		CamiMesCurt2 = CTrack(&graph, matriu[indexCamiMesCurt.front()][*next(indexCamiMesCurt.begin(), 1)].tram);
+
+		//merge al de indexes trams that we created with Dijkstra and we had saved in the matrix
+		for (auto it= next(indexCamiMesCurt.begin(), 1); it != --indexCamiMesCurt.end(); it++) {
+			auto itNext = it;
+			itNext = next(itNext, 1);
+			for (CEdge* e : matriu[*it][*itNext].tram)
+				CamiMesCurt2.m_Edges.push_back(e);
+			//solution.m_Edges.merge(matriu[topNode->m_indexes[element]][topNode->m_indexes[element] + 1].tram);
+		}
+
+		
 	}
 
 	return CamiMesCurt2;

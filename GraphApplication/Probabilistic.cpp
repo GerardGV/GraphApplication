@@ -6,7 +6,8 @@
 #include <random>
 #include <chrono>
 
-#define GRADIENT_ITERATION 5 
+#define GRADIENT_ITERATION 10000 
+#define SEED 1
 // SalesmanTrackProbabilistic ==================================================
 
 class Cell {
@@ -87,7 +88,7 @@ CTrack SalesmanTrackProbabilistic(CGraph& graph, CVisits& visits)
 		firstSolution.push_back(0);
 		while (!copyRange.empty())
 		{
-			srand(time(NULL));//change the seed of randome generator
+			//srand(SEED);//change the seed of randome generator
 			index = (rand() % copyRange.size());
 			newVertex = copyRange[index];
 
@@ -108,8 +109,9 @@ CTrack SalesmanTrackProbabilistic(CGraph& graph, CVisits& visits)
 		//same as before and at the end of the loop we are going to compare the best solution got it in Descens de Grdient with the first solution that we created after the creation of the matrix
 		double GradientLenght = std::numeric_limits<double>::max();
 		vector<int> GradientSolution;
-		for (int i = 0; i < GRADIENT_ITERATION; i++)
+		for (int i = 0; i < GRADIENT_ITERATION*visits.m_Vertices.size(); i++)
 		{
+		other:;
 			//we get back all the possible vertex to visit to calculate a new possible solution
 			copyRange = range;
 
@@ -118,9 +120,12 @@ CTrack SalesmanTrackProbabilistic(CGraph& graph, CVisits& visits)
 			int indexGrad;
 			vector<int> currentSolution;
 			currentSolution.push_back(0);
-			while (!copyRange.empty())
+			
+			while (!copyRange.empty() && currentLenght < GradientLenght)
 			{
-				srand(time(NULL));//change the seed of randome generator
+				if (currentLenght > GradientLenght)
+					goto other;
+				//srand(SEED);//change the seed of randome generator
 				indexGrad = (rand() % copyRange.size());
 				newVertex = copyRange[indexGrad];
 
